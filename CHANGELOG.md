@@ -1,3 +1,15 @@
+# [1.2.0](https://github.com/hanneskuettner/directus-extension-inline-form-interface/compare/v1.1.0...v1.2.0) (2024-03-07)
+
+
+### Bug Fixes
+
+* Permissions compatibility with Directus 10.9.1+ ([cc356d2](https://github.com/hanneskuettner/directus-extension-inline-form-interface/commit/cc356d2b964d5b6acf979105281dc20a1317e8e2))
+
+
+### Features
+
+* Bump dependencies ([7ed43ea](https://github.com/hanneskuettner/directus-extension-inline-form-interface/commit/7ed43eaca184f647e70296e325b253cee39fb6ad))
+
 # [1.1.0](https://github.com/hanneskuettner/directus-extension-inline-form-interface/compare/v1.0.1...v1.1.0) (2023-05-09)
 
 
