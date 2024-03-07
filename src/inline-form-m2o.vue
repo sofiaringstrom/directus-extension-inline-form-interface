@@ -76,7 +76,7 @@ const {
 } = usePermissions(
 	computed(() => relationInfo.value?.relatedCollection.collection ?? ''),
 	initialValues,
-	isNew
+	isNew,
 );
 
 const { usePermissionsStore } = useStores();
@@ -90,7 +90,7 @@ const readAllowed = computed(() => {
 const fields = computed(() =>
 	!isNil(relationInfo.value?.relation.meta?.one_field)
 		? fieldsWithPermissions.value.filter(({ field }) => field !== relationInfo.value?.relation.meta?.one_field)
-		: fieldsWithPermissions.value
+		: fieldsWithPermissions.value,
 );
 
 watch(
@@ -108,7 +108,7 @@ watch(
 			emit('input', item);
 		}
 	},
-	{ deep: true, immediate: true }
+	{ deep: true, immediate: true },
 );
 
 // watch for a discard (value will be changed back to it's initial key value)
@@ -121,7 +121,7 @@ watch(
 		if (get(initialValues.value, relationInfo.value.relatedPrimaryKeyField.field) === props.value && !isNew.value) {
 			fetchItem();
 		}
-	}
+	},
 );
 
 function useItem() {
@@ -136,7 +136,7 @@ function useItem() {
 		() => {
 			if (!isNew.value) fetchItem();
 		},
-		{ immediate: true }
+		{ immediate: true },
 	);
 
 	return { internalEdits, loading, initialValues, fetchItem };
