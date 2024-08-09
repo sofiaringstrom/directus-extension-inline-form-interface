@@ -30,7 +30,7 @@ import { get, isEmpty, isNil } from 'lodash-es';
 import { useRelationM2O } from '@/composables/use-relation-m2o.js';
 import { getEndpoint } from '@directus/utils';
 import { unexpectedError } from '@/utils/unexpected-error.js';
-import { usePermissions } from '@/composables/use-permissions.js';
+import { useItemPermissions } from '@/composables/use-permissions';
 
 interface Props {
 	value?: string | number | Record<string, any> | null;
@@ -73,9 +73,9 @@ const {
 	fields: fieldsWithPermissions,
 	createAllowed,
 	updateAllowed,
-} = usePermissions(
+} = useItemPermissions(
 	computed(() => relationInfo.value?.relatedCollection.collection ?? ''),
-	initialValues,
+	currentPrimaryKey,
 	isNew,
 );
 

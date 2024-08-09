@@ -34,15 +34,17 @@
 		"release": "semantic-release"
 	},
 	"devDependencies": {
-		"@directus/composables": "^10.1.11",
+		"@directus/composables": "^10.1.16",
 		"@directus/exceptions": "^10.0.3",
-		"@directus/types": "^11.0.7",
+		"@directus/extensions-sdk": "^11.0.1",
+		"@directus/types": "^11.2.1",
 		"@directus/utils": "^11.0.6",
 		"@rollup/plugin-alias": "^5.1.0",
 		"@rollup/plugin-node-resolve": "^15.2.3",
 		"@rollup/plugin-yaml": "^4.1.2",
 		"@semantic-release/changelog": "^6.0.3",
 		"@semantic-release/git": "^10.0.1",
+		"@types/lodash": "^4.17.7",
 		"@types/lodash-es": "^4.17.12",
 		"@typescript-eslint/eslint-plugin": "^7.1.1",
 		"@typescript-eslint/parser": "^7.1.1",
@@ -56,12 +58,15 @@
 		"sass": "^1.71.1",
 		"semantic-release": "^23.0.2",
 		"typescript": "^5.4.2",
-		"@directus/extensions-sdk": "^11.0.1",
 		"vue": "^3.2.47",
 		"vue-i18n": "^9.2.2"
 	},
 	"publishConfig": {
 		"access": "public"
 	},
-	"packageManager": "pnpm@8.15.4"
+	"packageManager": "pnpm@8.15.4",
+	"dependencies": {
+		"@vueuse/core": "^10.11.0",
+		"lodash": "^4.17.21"
+	}
 }
