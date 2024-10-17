@@ -6,9 +6,10 @@
 		{{ t('relationship_not_setup') }}
 	</v-notice>
 	<div v-else class="wrapper">
-		<v-notice v-if="!(createAllowed || updateAllowed)" type="warning">
+		<!-- Commented out because it wasn't working when creating a new entry createAllowed seem bugged -->
+		<!-- <v-notice v-if="!(createAllowed || updateAllowed)" type="warning">
 			{{ t('interfaces.inline-form-m2o.no-update-permission') }}
-		</v-notice>
+		</v-notice> -->
 		<v-form
 			v-model="internalEdits"
 			:disabled="disabled"
