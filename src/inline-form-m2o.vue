@@ -11,7 +11,7 @@
 			{{ t('interfaces.inline-form-m2o.no-update-permission') }}
 		</v-notice> -->
 		<v-form
-			:key="`${currentPrimaryKey}-${versionContext.version || 'published'}`"
+			:key="currentPrimaryKey"
 			v-model="internalEdits"
 			:disabled="disabled"
 			:loading="loading"
@@ -20,8 +20,6 @@
 			:primary-key="currentPrimaryKey"
 			:fields="fields"
 			:validation-errors="validationErrors"
-			:version="versionContext.version"
-			:draft="versionContext.draft"
 		/>
 	</div>
 </template>
@@ -73,15 +71,12 @@ const currentPrimaryKey = computed<string | number>(() => {
 });
 const isNew = computed(() => currentPrimaryKey.value === '+');
 
-const { internalEdits, loading, initialValues, fetchItem, getVersionContext, isInitializing } = useItem();
+const { internalEdits, loading, initialValues, fetchItem, isInitializing } = useItem();
 const { fields: fieldsWithPermissions } = useItemPermissions(
 	computed(() => relationInfo.value?.relatedCollection.collection ?? ''),
 	currentPrimaryKey,
 	isNew,
 );
-
-// Make version context available in template
-const versionContext = computed(() => getVersionContext());
 
 const { usePermissionsStore } = useStores();
 const { hasPermission } = usePermissionsStore();
@@ -272,6 +267,7 @@ function useItem() {
 
 					if (versionContext.version) {
 						parentParams.version = versionContext.version;
+						parentParams.versionRaw = true; // CRITICAL: Get versioned format for M2M fields
 					}
 					if (versionContext.draft) {
 						parentParams.draft = versionContext.draft;
